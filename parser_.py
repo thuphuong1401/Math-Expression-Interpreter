@@ -1,6 +1,15 @@
 from tokens import TokenType
 from nodes import *
 
+'''
+Recursive descent parsing
+Grammar:
+<expression> -> <term> 
+<term> -> <factor>
+<factor> -> number | parenthesis | <expression>
+
+'''
+
 class Parser:
 	def __init__(self, tokens):
 		self.tokens = iter(tokens)
@@ -69,11 +78,11 @@ class Parser:
 			self.advance()
 			return NumberNode(token.value)
 
-		elif token.type == TokenType.PLUS:
+		elif token.type == TokenType.PLUS: # +5, +6
 			self.advance()
 			return PlusNode(self.factor())
 		
-		elif token.type == TokenType.MINUS:
+		elif token.type == TokenType.MINUS: # -5, -6
 			self.advance()
 			return MinusNode(self.factor())
 		
