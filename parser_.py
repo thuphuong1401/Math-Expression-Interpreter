@@ -4,8 +4,8 @@ from nodes import *
 '''
 Recursive descent parsing
 Grammar:
-<expression> -> <term> 
-<term> -> <factor>
+<expression> -> <term> | <term> + <term> | <term> - <term>
+<term> -> <factor> | <factor> * <factor> | <factor> / <factor>
 <factor> -> number | parenthesis | <expression>
 
 '''
