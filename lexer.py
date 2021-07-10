@@ -49,8 +49,7 @@ class Lexer:
     
     def generate_number(self):
         decimal_point_count = 0
-        number_str = self.current_char
-        self.advance()
+        number_str = ""
 
         while self.current_char != None and (self.current_char == '.' or self.current_char in DIGITS):
             if self.current_char == '.':
